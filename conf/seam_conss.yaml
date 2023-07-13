@@ -1,0 +1,23 @@
+train:
+  model: DeepLabV3Plus
+  max_epoch: 8
+  lr: 0.001
+  smooth_factor: 0.1
+  dir_suffix: seam_conss
+  contra_loss: True
+  contrastive:
+    aug_mode: cutmix
+    weak_threshold: 0.7
+    strong_threshold: 0.95
+    num_negatives: 128
+    num_queries: 128
+    temperature: 0.5
+valid:
+  metric: Mean IoU
+dataset:
+  name: seam_semi
+  train_data_path: /volume/dataset/seam_ai/data_train.npz
+  train_labels_path: /volume/dataset/seam_ai/labels_train.npz
+  slice_width: 256
+  batch_size: 2
+  sample_position: [0,100,200,300,400,500,589]

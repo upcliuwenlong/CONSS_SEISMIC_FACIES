@@ -1,0 +1,21 @@
+train:
+  max_epoch: 8
+  classes: 6
+  lr: 0.0001
+  bn_eps: 0.00001
+  bn_momentum: 0.1
+  smooth_factor: 0.1
+  dir_suffix: f3_cps_DeepLabV3Plus
+valid:
+  metric: Mean IoU
+dataset:
+  name: f3_cps
+  train_data_path: /volume/dataset/f3/train/train_seismic.npy
+  train_labels_path: /volume/dataset/f3/train/train_labels.npy
+  test1_data_path: /volume/dataset/f3/test_once/test1_seismic.npy
+  test1_labels_path: /volume/dataset/f3/test_once/test1_labels.npy
+  test2_data_path: /volume/dataset/f3/test_once/test2_seismic.npy
+  test2_labels_path: /volume/dataset/f3/test_once/test2_labels.npy
+  slice_width: 256
+  batch_size: 2
+  sample_position: [0,100,200,300,400,500,600]

@@ -1,0 +1,27 @@
+train:
+  model: DeepLabV3Plus
+  max_epoch: 8
+  lr: 0.0001
+  smooth_factor: 0.1
+  dir_suffix: f3_conss
+  contra_loss: True
+  contrastive:
+    aug_mode: classmix
+    weak_threshold: 0.7
+    strong_threshold: 0.9
+    num_negatives: 128
+    num_queries: 128
+    temperature: 1
+valid:
+  metric: Mean IoU
+dataset:
+  name: f3_semi
+  train_data_path: /volume/dataset/f3/train/train_seismic.npy
+  train_labels_path: /volume/dataset/f3/train/train_labels.npy
+  test1_data_path: /volume/dataset/f3/test_once/test1_seismic.npy
+  test1_labels_path: /volume/dataset/f3/test_once/test1_labels.npy
+  test2_data_path: /volume/dataset/f3/test_once/test2_seismic.npy
+  test2_labels_path: /volume/dataset/f3/test_once/test2_labels.npy
+  slice_width: 256
+  batch_size: 2
+  sample_position: [0,100,200,300,400,500,600]

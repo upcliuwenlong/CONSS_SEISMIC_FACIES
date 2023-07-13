@@ -1,0 +1,24 @@
+in_channels: 1
+classes: 6
+rep_channels: 128
+encoder_name: resnet101
+Unet:
+  decoder_channels: 16
+  upsampling: 1
+Linknet:
+  decoder_channels: 32
+  upsampling: 1
+FPN:
+  decoder_channels: 128
+  upsampling: 4
+PSPNet:
+  decoder_channels: 512
+  upsampling: 8
+DeepLabV3:
+  decoder_channels: 256
+  upsampling: 8
+DeepLabV3Plus:
+  decoder_channels: 256
+  upsampling: 4
+
+
