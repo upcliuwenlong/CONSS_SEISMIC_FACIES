@@ -12,16 +12,25 @@ Runing the following scripts in turn for installation and training.
 git clone https://github.com/upcliuwenlong/CONSS_SEISMIC_FACIES.git && cd CONSS_SEISMIC_FACIES
 pip install -r requirements.txt
 
-# supervised learning
+# Supervised learning
 python train_sup.py
 
-# self-training
+# Pseudo-label
 python train_st.py
 
-# consistency regularization
+# Mean-teacher
+python train_mt.py
+
+# Cross pseudo supervision
 python train_cps.py
 
-# conss
+# Cross-consistency training
+python train_cct.py
+
+# conss-single
+python train_conss_single.py
+
+# conss-dual
 python train_conss.py
 
 # inference
@@ -80,9 +89,12 @@ python evaluate_seam.py
   | Method                     | PA        | MCA       | MIOU      | F1        | CHECKPOINTS                                                  |
   | -------------------------- | --------- | --------- | --------- | --------- | ------------------------------------------------------------ |
   | supervised                 | 96.62     | 92.09     | 87.12     | 92.87     | [Google Drive](https://drive.google.com/file/d/1c6wZlWxEAHvgqBHKsI902qeFRNckJtYm/view?usp=drive_link) |
-  | self-training              | 97.04     | 92.43     | 87.83     | 93.31     | [Google Drive](https://drive.google.com/file/d/1TDq6J0olk6iMJsHEj88xef2a322uhefR/view?usp=drive_link) |
-  | consistency regularization | 97.44     | 94.02     | 89.24     | 94.16     | [Google Drive](https://drive.google.com/file/d/1V9jnZAHt9oeCge13RCEgtq2GbwrdtbhM/view?usp=drive_link) |
-  | CONSS                      | **97.66** | **96.52** | **90.73** | **95.04** | [Google Drive](https://drive.google.com/file/d/1_u2VdtE1t-TbPvAJOV4f5kYmcJCXgKL4/view?usp=drive_link) |
+  | Pseudo-label               | 97.04     | 92.43     | 87.83     | 93.31     | [Google Drive](https://drive.google.com/file/d/1TDq6J0olk6iMJsHEj88xef2a322uhefR/view?usp=drive_link) |
+  | Mean-teacher               | 97.38     | 94.19     | 89.06     | 94.05     | [Google Drive](https://drive.google.com/file/d/167mb23JI3ruQ-KI8BjLYVBs5fa9SZQlc/view?usp=drive_link) |
+  | Cross pseudo supervision   | 97.44     | 94.02     | 89.24     | 94.16     | [Google Drive](https://drive.google.com/file/d/1V9jnZAHt9oeCge13RCEgtq2GbwrdtbhM/view?usp=drive_link) |
+  | Cross-consistency training | 97.48     | 94.58     | 89.78     | 94.49     | [Google Drive](https://drive.google.com/file/d/1FYsxXOfDTYZbn1FU_5ORyHw20umEMvsg/view?usp=drive_link) |
+  | CONSS w/ single-level      | 97.52     | 95.28     | 90.01     | 94.62     | [Google Drive](https://drive.google.com/file/d/1F0Cn_ypUwTgA6fu4X069VFVvYCEzgN28/view?usp=drive_link) |
+  | CONSS w/ dual-level        | **97.66** | **96.52** | **90.73** | **95.04** | [Google Drive](https://drive.google.com/file/d/1_u2VdtE1t-TbPvAJOV4f5kYmcJCXgKL4/view?usp=drive_link) |
 
 
 
@@ -91,10 +103,13 @@ python evaluate_seam.py
   
   | Method                     | PA        | MCA       | MIOU      | F1        | CHECKPOINTS                                                  |
   | -------------------------- | --------- | --------- | --------- | --------- | ------------------------------------------------------------ |
-  | supervised                 | 95.04     | 89.69     | 83.04     | 90.38     | [Google Drive](https://drive.google.com/file/d/12_s_RLQeTNeFrctNAw7Jwp-ha0Fh3WmE/view?usp=drive_link) |
-  | self-training              | 95.57     | 91.27     | 85.01     | 91.44     | [Google Drive](https://drive.google.com/file/d/1s09FO1FUVTeS44Pw4QnMpKF4lBnuXUTB/view?usp=drive_link) |
-  | consistency regularization | 96.55     | 90.62     | 86.54     | 92,28     | [Google Drive](https://drive.google.com/file/d/1jrD072nxmJ2T6vVKF1yHn9jqu14c9eqd/view?usp=drive_link) |
-  | CONSS                      | **96.67** | **93.08** | **87.99** | **93.30** | [Google Drive](https://drive.google.com/file/d/191Z2u60eM2VPqtodPnna7gp2SXiycJBl/view?usp=drive_link) |
+  | Supervised                 | 95.04     | 89.69     | 83.04     | 90.38     | [Google Drive](https://drive.google.com/file/d/12_s_RLQeTNeFrctNAw7Jwp-ha0Fh3WmE/view?usp=drive_link) |
+  | Pseudo-label               | 95.57     | 91.27     | 85.01     | 91.44     | [Google Drive](https://drive.google.com/file/d/1s09FO1FUVTeS44Pw4QnMpKF4lBnuXUTB/view?usp=drive_link) |
+  | Mean-teacher               | 95.74     | 91.61     | 85.38     | 91.67     | [Google Drive](https://drive.google.com/file/d/1iaH6B3JIqCRtDcW34Qt4b-GqKgO5KOG-/view?usp=drive_link) |
+  | Cross pseudo supervision   | 96.55     | 90.62     | 86.54     | 92,28     | [Google Drive](https://drive.google.com/file/d/1jrD072nxmJ2T6vVKF1yHn9jqu14c9eqd/view?usp=drive_link) |
+  | Cross-consistency training | 96.18     | 92.70     | 86.56     | 92.41     | [Google Drive](https://drive.google.com/file/d/10gspf17yPCkXfj_6HxHeQyqxyu8xm8Lw/view?usp=drive_link) |
+  | CONSS w/ single-level      | 96.57     | 92.34     | 87.09     | 92.69     | [Google Drive](https://drive.google.com/file/d/1IWus19TwdY598DjIVyPmEE9JnX40cteS/view?usp=drive_link) |
+  | CONSS w/ dual-level        | **96.67** | **93.08** | **87.99** | **93.30** | [Google Drive](https://drive.google.com/file/d/191Z2u60eM2VPqtodPnna7gp2SXiycJBl/view?usp=drive_link) |
 
 
 
