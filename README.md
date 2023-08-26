@@ -10,25 +10,6 @@ Runing the following scripts in turn for installation and training.
 
 ```
 git clone https://github.com/upcliuwenlong/CONSS_SEISMIC_FACIES.git && cd CONSS_SEISMIC_FACIES
-pip install -r requirements.txt
-
-# Supervised learning
-python train_sup.py
-
-# Pseudo-label
-python train_st.py
-
-# Mean-teacher
-python train_mt.py
-
-# Cross pseudo supervision
-python train_cps.py
-
-# Cross-consistency training
-python train_cct.py
-
-# conss-single
-python train_conss_single.py
 
 # conss-dual
 python train_conss.py
