@@ -9,7 +9,7 @@
 Runing the following scripts in turn for installation and training.
 
 ```
-git clone https://github.com/upcliuwenlong/CONSS_SEISMIC_FACIES.git && cd CONSS_SEISMIC_FACIES
+git clone https://github.com/upcliuwenlong/CONSS_SEISMIC_FACIES.git && cd CONSS_SEISMIC_FACIES/train
 
 # conss-dual
 python train_conss.py
