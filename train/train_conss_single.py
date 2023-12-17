@@ -63,16 +63,16 @@ def train(cfg,model,optimizer,lr_scheduler,sup_loader,semi_loader,epoch,settings
             prob_max_semi_temp,labels_semi_temp = torch.max(torch.softmax(pred_semi_temp,dim=1),dim=1)
 
             if AUG_MODE:
-                semi_aug_iamges ,semi_aug_labels,semi_aug_prob_max = \
+                semi_aug_images ,semi_aug_labels,semi_aug_prob_max = \
                     generate_aug_data(semi_images, labels_semi_temp, prob_max_semi_temp, mode=AUG_MODE)
             else:
-                semi_aug_iamges = semi_images
+                semi_aug_images = semi_images
                 semi_aug_labels = labels_semi_temp
                 semi_aug_prob_max = prob_max_semi_temp
 
 
         pred_sup, rep_sup = model(sup_images)
-        pred_semi, rep_semi = model(semi_aug_iamges)
+        pred_semi, rep_semi = model(semi_aug_images)
 
         sup_running_metrics_train.update(sup_labels.detach().cpu().numpy(), pred_sup.detach().max(1)[1].cpu().numpy())
         semi_running_metrics_train.update(semi_labels.detach().cpu().numpy(), pred_semi_temp.detach().max(1)[1].cpu().numpy())
